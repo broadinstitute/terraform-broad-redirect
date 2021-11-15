@@ -1,0 +1,11 @@
+.terraform*
+.terragrunt*
+*.backup
+backend.tf
+config.sh
+*_override.tf
+*_svc.json
+planfile
+tmp/*
+# temporary
+objects/*

@@ -1,0 +1,57 @@
+---
+name: 'pr-checks'
+
+'on':
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  validation:
+    runs-on: 'ubuntu-latest'
+    container:
+      image: 'alpine/terragrunt:latest'
+    env:
+      DISABLE_INIT: true
+
+    steps:
+      - name: 'Checkout repo'
+        uses: 'actions/checkout@v2.3.5'
+
+      - name: 'Initialize Terraform'
+        run: |
+          cd prod
+          terragrunt init
+          terragrunt version
+
+      - name: 'Validate Terraform'
+        run: |
+          cd prod
+          terragrunt validate
+
+  tflint:
+    runs-on: 'ubuntu-latest'
+    container:
+      image: 'wata727/tflint:latest'
+
+    steps:
+      - name: 'Checkout repo'
+        uses: 'actions/checkout@v2.3.5'
+
+      - name: 'Run TFLint'
+        run: |
+          cd terraform
+          tflint -c ../.tflint.hcl --loglevel=info
+
+  static_analysis:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout repo'
+        uses: 'actions/checkout@v2.3.5'
+
+      - name: 'Run tfsec'
+        id: 'tfsec'
+        uses: 'aquasecurity/tfsec-pr-commenter-action@v0.1.10'
+        with:
+          github_token: ${{ github.token }}
+          working_directory: 'terraform/'
