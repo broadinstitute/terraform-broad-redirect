@@ -20,13 +20,13 @@ jobs:
 
       - name: 'Initialize Terraform'
         run: |
-          cd prod
+          cd dev
           terragrunt init
           terragrunt version
 
       - name: 'Validate Terraform'
         run: |
-          cd prod
+          cd dev
           terragrunt validate
 
   tflint:

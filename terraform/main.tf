@@ -1,4 +1,4 @@
-data "google_project" "project" {}
+# data "google_project" "project" {}
 
 resource "google_project_iam_policy" "broad_redirect" {
   policy_data = data.google_iam_policy.admin.policy_data
@@ -6,11 +6,11 @@ resource "google_project_iam_policy" "broad_redirect" {
 }
 
 data "google_iam_policy" "admin" {
-  # binding {
-  #   members = [
-  #     "group:operations@broadinstitute.org",
-  #   ]
-  #   role = "roles/owner"
-  # }
+  binding {
+    members = [
+      "group:engineering@broadinstitute.org",
+    ]
+    role = "roles/owner"
+  }
 
 }
