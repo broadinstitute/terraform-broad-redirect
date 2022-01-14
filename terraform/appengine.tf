@@ -1,3 +1,7 @@
+#
+# https://www.maxlaumeister.com/articles/how-to-use-google-app-engine-as-a-free-redirect-server/
+#
+
 # resource "google_app_engine_standard_app_version" "redirect_app" {
 #   delete_service_on_destroy = true
 #   runtime                   = "python39"
