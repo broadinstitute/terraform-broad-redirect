@@ -51,7 +51,7 @@ jobs:
 
       - name: 'Run tfsec'
         id: 'tfsec'
-        uses: 'aquasecurity/tfsec-pr-commenter-action@v0.1.10'
+        uses: 'aquasecurity/tfsec-pr-commenter-action@v1.3.0'
         with:
           github_token: ${{ github.token }}
           working_directory: 'terraform/'
