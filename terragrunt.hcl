@@ -1,8 +1,11 @@
 # Global terragrunt configuration
 
 locals {
-  settings_vars  = read_terragrunt_config("settings.hcl")
+  settings_vars = read_terragrunt_config("settings.hcl")
+
   bucket         = local.settings_vars.locals.bucket
+  bucket_project = local.settings_vars.locals.bucket_project
+  environment    = local.settings_vars.locals.environment
   project        = local.settings_vars.locals.project
   region         = local.settings_vars.locals.region
 }
@@ -11,15 +14,15 @@ locals {
 remote_state {
   backend      = "gcs"
   disable_init = tobool(get_env("DISABLE_INIT", "false"))
-  generate     = {
+  generate = {
     path      = "backend.tf"
     if_exists = "overwrite"
   }
   config = {
-    bucket         = local.bucket
-    location       = "us"
-    prefix         = "terraform"
-    project        = local.project
+    bucket   = local.bucket
+    location = "us"
+    prefix   = "broad-redirect/${local.environment}"
+    project  = local.bucket_project
   }
 }
 
@@ -29,6 +32,10 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "google" {
+  project     = var.project
+  region      = var.region
+}
+provider "google-beta" {
   project     = var.project
   region      = var.region
 }
