@@ -36,3 +36,15 @@ variable "region" {
   description = "The deployment region"
   type        = string
 }
+
+variable "redirects" {
+  default     = {
+    broadinstitute_mobi = {
+      redirect       = "www.broadinstitute.org"
+      hostname       = [ "www.broadinstitute.mobi", "broadinstitute.mobi" ]
+      https_redirect = true
+    }
+  }
+  description = "The data used to create all the redirects"
+  type        = map
+}
