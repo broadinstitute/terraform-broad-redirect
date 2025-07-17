@@ -1,0 +1,9 @@
+---
+site_name: 'Broad Redirect Service'
+
+nav:
+  - Home: README.md
+  - ADRs: adr/README.md
+
+plugins:
+  - techdocs-core

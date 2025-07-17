@@ -3,7 +3,7 @@ variable "api_services" {
     "compute.googleapis.com",
   ]
   description = "The billing account used by the project"
-  type        = list
+  type        = list(any)
 }
 
 variable "billing_account" {
@@ -16,9 +16,34 @@ variable "cost_object" {
   type        = string
 }
 
+variable "domain_redirects" {
+  default     = {}
+  description = "The data used to create all the domain-level redirects"
+  type = map(object({
+    redirect       = string
+    hostname       = list(string)
+    https_redirect = bool
+  }))
+}
+
 variable "folder_id" {
   description = "The ID for the folder in which the project should reside"
   type        = string
+}
+
+variable "path_redirects" {
+  description = "The map of redirects to apply to the path under the hostname."
+  type = map(object({
+    default_destination_host = optional(string, "www.broadinstitute.org")
+    default_destination_path = optional(string, "/")
+    hostnames                = list(string)
+    redirects = list(object({
+      destination_host       = string
+      destination_path       = string
+      redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
+      source_paths           = list(string)
+    }))
+  }))
 }
 
 variable "project" {
@@ -35,16 +60,4 @@ variable "project_name" {
 variable "region" {
   description = "The deployment region"
   type        = string
-}
-
-variable "redirects" {
-  default     = {
-    broadinstitute_mobi = {
-      redirect       = "www.broadinstitute.org"
-      hostname       = [ "www.broadinstitute.mobi", "broadinstitute.mobi" ]
-      https_redirect = true
-    }
-  }
-  description = "The data used to create all the redirects"
-  type        = map
 }
