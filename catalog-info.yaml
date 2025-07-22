@@ -1,0 +1,17 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  annotations:
+    backstage.io/source-template: template:default/open-pr-with-catalog-entry
+    github.com/project-slug: broadinstitute/terraform-broad-redirect
+  description: Terraform configuration for the broad-redirect projects
+  name: terraform-broad-redirect
+  tags:
+    - gcp
+    - redirects
+spec:
+  domain: web-hosting
+  lifecycle: production
+  owner: devnull
+  type: website
