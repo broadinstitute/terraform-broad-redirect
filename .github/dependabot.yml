@@ -15,9 +15,9 @@ updates:
   - package-ecosystem: 'terraform'
     commit-message:
       prefix: fix
-    directory: '/terraform'
+    directory: '/prod'
     groups:
-      terraform:
+      terraform_prod:
         patterns:
           - '*'
     schedule:

@@ -1,29 +1,29 @@
-resource "google_project" "default" {
+resource "google_project" "redirects" {
   auto_create_network = false
   billing_account     = var.billing_account
+  deletion_policy     = "ABANDON"
   folder_id           = var.folder_id
   labels              = { billing = lower(var.billing_account), costobject = "broad-${var.cost_object}" }
   name                = var.project_name
   project_id          = var.project
-  skip_delete         = true
 }
 
-resource "google_resource_manager_lien" "default" {
-  parent       = "projects/${google_project.default.number}"
+resource "google_resource_manager_lien" "redirects" {
+  parent       = "projects/${google_project.redirects.number}"
   restrictions = ["resourcemanager.projects.delete"]
-  origin       = "${google_project.default.project_id}-project-lien-protection"
+  origin       = "${google_project.redirects.project_id}-project-lien-protection"
   reason       = "This is the primary project for Broad domain redirects and should never be deleted"
 }
 
 resource "google_project_service" "api_services" {
   for_each = toset(var.api_services)
-  service = each.key
+  service  = each.key
 
   disable_dependent_services = false
-  disable_on_destroy = false
+  disable_on_destroy         = false
 
   depends_on = [
-    google_project.default
+    google_project.redirects
   ]
 }
 
@@ -38,5 +38,11 @@ data "google_iam_policy" "admin" {
       "group:devnull-sa@broadinstitute.org",
     ]
     role = "roles/owner"
+  }
+  binding {
+    members = [
+      "group:bits@broadinstitute.org",
+    ]
+    role = "roles/viewer"
   }
 }
