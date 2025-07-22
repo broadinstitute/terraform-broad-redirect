@@ -10,5 +10,6 @@ projects:
       enabled: true
       when_modified:
         - '*.tf'
+        - '*.tfvars'
         - '../atlantis.yaml'
     dir: prod
