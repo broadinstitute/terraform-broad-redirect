@@ -6,10 +6,8 @@ project_name    = "Broad Redirects - Production"
 region          = "us-east4"
 
 domain_redirects = {
-  "broadinstitute.org" = {
-    redirect       = "www.broadinstitute.org"
+  "broadinstitute-org" = {
     hostname       = [
-      "broadinstitute.org",
       "broadinstitute.mobi",
       "www.broadinstitute.mobi",
       # The following domains are misspellings of broadinstitute.org
@@ -51,11 +49,12 @@ domain_redirects = {
       # "thebroadinstitute.us",
     ]
     https_redirect = true
+    redirect       = "www.broadinstitute.org"
   }
 }
 
 path_redirects = {
-  "proteomics.broadapps.org" = {
+  "proteomics-broadapps-org" = {
     hostnames = ["proteomics.broadapps.org"]
     redirects = [
       {

@@ -1,9 +1,9 @@
 locals {
-  safe_hostname = replace(var.hostnames[0], ".", "-")
+  safe_name = var.name != null ? var.name : replace(var.hostnames[0], ".", "-")
 }
 
 resource "google_compute_url_map" "https_url_map" {
-  name = "${local.safe_hostname}-https-url-map"
+  name = "${local.safe_name}-https-url-map"
 
   default_url_redirect {
     host_redirect          = var.default_destination_host
@@ -47,7 +47,7 @@ resource "google_compute_url_map" "https_url_map" {
 }
 
 resource "google_compute_managed_ssl_certificate" "certificate" {
-  name     = "${local.safe_hostname}-managed-certificate"
+  name     = "${local.safe_name}-managed-certificate"
   provider = google
 
   managed {
@@ -56,14 +56,14 @@ resource "google_compute_managed_ssl_certificate" "certificate" {
 }
 
 resource "google_compute_target_https_proxy" "https_proxy" {
-  name             = "${local.safe_hostname}-https-proxy"
+  name             = "${local.safe_name}-https-proxy"
   ssl_certificates = [google_compute_managed_ssl_certificate.certificate.self_link]
   ssl_policy       = var.ssl_policy
   url_map          = google_compute_url_map.https_url_map.self_link
 }
 
 resource "google_compute_url_map" "http_to_https_redirect" {
-  name = "${local.safe_hostname}-to-http-url-map"
+  name = "${local.safe_name}-to-http-url-map"
 
   default_url_redirect {
     https_redirect         = true
@@ -73,26 +73,26 @@ resource "google_compute_url_map" "http_to_https_redirect" {
 }
 
 resource "google_compute_target_http_proxy" "http_proxy" {
-  name    = "${local.safe_hostname}-http-proxy"
+  name    = "${local.safe_name}-http-proxy"
   url_map = google_compute_url_map.http_to_https_redirect.self_link
 }
 
 resource "google_compute_global_address" "public_address" {
   address_type = "EXTERNAL"
   ip_version   = "IPV4"
-  name         = "${local.safe_hostname}-public-address"
+  name         = "${local.safe_name}-public-address"
 }
 
 resource "google_compute_global_forwarding_rule" "global_forwarding_https_rule" {
   ip_address = google_compute_global_address.public_address.address
-  name       = "${local.safe_hostname}-global-forwarding-https-rule"
+  name       = "${local.safe_name}-global-forwarding-https-rule"
   port_range = "443"
   target     = google_compute_target_https_proxy.https_proxy.self_link
 }
 
 resource "google_compute_global_forwarding_rule" "global_forwarding_http_rule" {
   ip_address = google_compute_global_address.public_address.address
-  name       = "${local.safe_hostname}-global-forwarding-http-rule"
+  name       = "${local.safe_name}-global-forwarding-http-rule"
   port_range = "80"
   target     = google_compute_target_http_proxy.http_proxy.self_link
 }

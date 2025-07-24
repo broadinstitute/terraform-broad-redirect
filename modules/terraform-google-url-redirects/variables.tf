@@ -13,6 +13,17 @@ variable "default_destination_path" {
   type        = string
 }
 
+variable "name" {
+  default     = null
+  description = "The name to use for all resources created."
+  nullable    = true
+  type        = string
+  validation {
+    condition     = can(regex("^[a-z][a-z0-9-]*$", var.name)) || var.name == null
+    error_message = "The name value must be a valid Google resource name, alphanumeric and dashes."
+  }
+}
+
 variable "redirects" {
   description = "The map of redirects to apply to the path under the hostname."
   type = list(object({
