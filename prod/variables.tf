@@ -1,5 +1,6 @@
 variable "api_services" {
   default = [
+    "certificatemanager.googleapis.com",
     "compute.googleapis.com",
   ]
   description = "The billing account used by the project"
