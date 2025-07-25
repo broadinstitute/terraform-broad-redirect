@@ -1,5 +1,6 @@
 variable "api_services" {
   default = [
+    "certificatemanager.googleapis.com",
     "compute.googleapis.com",
   ]
   description = "The billing account used by the project"
@@ -21,7 +22,7 @@ variable "domain_redirects" {
   description = "The data used to create all the domain-level redirects"
   type = map(object({
     redirect       = string
-    hostname       = list(string)
+    hostnames      = map(list(string))
     https_redirect = bool
   }))
 }
