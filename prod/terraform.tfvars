@@ -7,9 +7,8 @@ region          = "us-east4"
 
 domain_redirects = {
   "broadinstitute-org" = {
-    hostname       = [
-      "broadinstitute.mobi",
-      "www.broadinstitute.mobi",
+    hostnames       = {
+      "broadinstitute.mobi" = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
       # The following domains are misspellings of broadinstitute.org
       # "broadinsitute.org",
       # "broadinstittute.org",
@@ -47,7 +46,7 @@ domain_redirects = {
       # "thebroadinstitute.net",
       # "thebroadinstitute.org",
       # "thebroadinstitute.us",
-    ]
+    }
     https_redirect = true
     redirect       = "www.broadinstitute.org"
   }
