@@ -17,27 +17,18 @@ variable "cost_object" {
   type        = string
 }
 
-variable "domain_redirects" {
-  default     = {}
-  description = "The data used to create all the domain-level redirects"
-  type = map(object({
-    redirect       = string
-    hostname       = list(string)
-    https_redirect = bool
-  }))
-}
-
 variable "folder_id" {
   description = "The ID for the folder in which the project should reside"
   type        = string
 }
 
-variable "path_redirects" {
-  description = "The map of redirects to apply to the path under the hostname."
+variable "http_redirects" {
+  description = "The map of redirects to create."
   type = map(object({
-    default_destination_host = optional(string, "www.broadinstitute.org")
-    default_destination_path = optional(string, "/")
-    hostnames                = list(string)
+    certificates                   = map(list(string))
+    default_destination_host       = optional(string, "www.broadinstitute.org")
+    default_destination_path       = optional(string, "/")
+    default_redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
     redirects = list(object({
       destination_host       = string
       destination_path       = string
