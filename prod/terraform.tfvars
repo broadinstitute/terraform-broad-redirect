@@ -28,6 +28,34 @@ http_redirects = {
       }
     ]
   },
+  # INC0330028
+  "prot-shiny-vm-broadinstitute-org" = {
+    certificates = {
+      "prot-shiny-vm.broadinstitute.org" = ["prot-shiny-vm.broadinstitute.org"]
+    }
+    redirects = [
+      {
+        destination_host = "proteogenomics.shinyapps.io"
+        destination_path = "/cptac-BRCA2016-viewer/"
+        source_paths     = ["/BC2016", "/BC2016/"]
+      },
+      {
+        destination_host = "proteogenomics.shinyapps.io"
+        destination_path = "/cptac-BKM120-viewer/"
+        source_paths     = ["/BKM120", "/BKM120/"]
+      },
+      {
+        destination_host = "proteogenomics.shinyapps.io"
+        destination_path = "/cptac-BRCA2020-viewer/"
+        source_paths     = ["/CPTAC-BRCA2020", "/CPTAC-BRCA2020/"]
+      },
+      {
+        destination_host = "proteogenomics.shinyapps.io"
+        destination_path = "cptac-LUAD2020-viewer/"
+        source_paths     = ["/CPTAC-LUAD2020", "/CPTAC-LUAD2020/"]
+      },
+    ]
+  },
   "broadinstitute-org" = {
     certificates                   = {
       "broadinstitute.mobi" = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
