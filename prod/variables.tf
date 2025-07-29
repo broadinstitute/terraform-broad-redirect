@@ -29,6 +29,8 @@ variable "http_redirects" {
     default_destination_host       = optional(string, "www.broadinstitute.org")
     default_destination_path       = optional(string, "/")
     default_redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
+    http_port_range                = optional(string, "80")
+    https_port_range               = optional(string, "443")
     redirects = list(object({
       destination_host       = string
       destination_path       = string

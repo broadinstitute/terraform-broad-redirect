@@ -33,6 +33,7 @@ http_redirects = {
     certificates = {
       "prot-shiny-vm.broadinstitute.org" = ["prot-shiny-vm.broadinstitute.org"]
     }
+    http_port_range = "3838"
     redirects = [
       {
         destination_host = "proteogenomics.shinyapps.io"

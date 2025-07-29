@@ -32,6 +32,8 @@ module "http_redirects" {
   default_destination_path       = each.value.default_destination_path
   default_redirect_response_code = each.value.default_redirect_response_code
   dns_authorizations             = google_certificate_manager_dns_authorization.domains
+  http_port_range                = each.value.http_port_range
+  https_port_range               = each.value.https_port_range
   name                           = each.key
   project                        = google_project.redirects.project_id
   redirects                      = each.value.redirects
