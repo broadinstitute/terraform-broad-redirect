@@ -6,6 +6,58 @@ project_name    = "Broad Redirects - Production"
 region          = "us-east4"
 
 http_redirects = {
+  # The following domains are misspellings of broadinstitute.org
+  "broadinstitute-misspell" = {
+    certificates = {
+      "broadinsitute.org" = ["broadinsitute.org", "www.broadinsitute.org"],
+      # "broadinstittute.org",
+      # "broadinstitute-mit.org",
+      # "broadintitute.com",
+      # "broadintitute.org",
+      # "broadlinstitute.com",
+      # "broadlinstitute.net",
+      # "broadlinstitute.org",
+      # "broadlnstitute.com",
+      # "broadlnstitute.net",
+      # "broadlnstitute.org",
+      # "broadlntitute.com",
+      # "broadlntitute.org",
+      # "broadnstitute.org",
+    }
+    redirects              = []
+    use_dns_authorizations = false
+  }
+  "broadinstitute-org" = {
+    certificates = {
+      "broadinstitute.mobi" = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
+      "broadinstitute.org"  = ["broadinstitute.org"]
+      # The following domains are Broad domains that should redirect to www.broadinstitute.org
+      # "broad.dev",
+      # "broad.im",
+      # "broad.institute",
+      # "broad.us",
+      # "broadapis.org",
+      # "broadapps.com",
+      # "broadapps.net",
+      # "broadapps.org",
+      # "broadinstitute.com",
+      # "broadinstitute.info",
+      # "broadinstitute.net",
+      # "broadinstitute.tv",
+      # "broadinstitute.us",
+      # "redirect.broadinstitute.org",
+      # "test.broadinstitute.com",
+      # "test.broadinstitute.net",
+      # "test.broadinstitute.org",
+      # "thebroadinstitute.com",
+      # "thebroadinstitute.info",
+      # "thebroadinstitute.net",
+      # "thebroadinstitute.org",
+      # "thebroadinstitute.us",
+    }
+    default_redirect_response_code = "TEMPORARY_REDIRECT"
+    redirects                      = []
+  },
   "proteomics-broadapps-org" = {
     certificates = {
       "proteomics.broadapps.org" = ["proteomics.broadapps.org"]
@@ -57,50 +109,4 @@ http_redirects = {
       },
     ]
   },
-  "broadinstitute-org" = {
-    certificates                   = {
-      "broadinstitute.mobi" = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
-      "broadinstitute.org"  = ["broadinstitute.org"]
-      # The following domains are misspellings of broadinstitute.org
-      "broadinsitute.org" = ["broadinsitute.org", "www.broadinsitute.org"],
-      # "broadinstittute.org",
-      # "broadinstitute-mit.org",
-      # "broadintitute.com",
-      # "broadintitute.org",
-      # "broadlinstitute.com",
-      # "broadlinstitute.net",
-      # "broadlinstitute.org",
-      # "broadlnstitute.com",
-      # "broadlnstitute.net",
-      # "broadlnstitute.org",
-      # "broadlntitute.com",
-      # "broadlntitute.org",
-      # "broadnstitute.org",
-      # The following domains are Broad domains that should redirect to www.broadinstitute.org
-      # "broad.dev",
-      # "broad.im",
-      # "broad.institute",
-      # "broad.us",
-      # "broadapis.org",
-      # "broadapps.com",
-      # "broadapps.net",
-      # "broadapps.org",
-      # "broadinstitute.com",
-      # "broadinstitute.info",
-      # "broadinstitute.net",
-      # "broadinstitute.tv",
-      # "broadinstitute.us",
-      # "redirect.broadinstitute.org",
-      # "test.broadinstitute.com",
-      # "test.broadinstitute.net",
-      # "test.broadinstitute.org",
-      # "thebroadinstitute.com",
-      # "thebroadinstitute.info",
-      # "thebroadinstitute.net",
-      # "thebroadinstitute.org",
-      # "thebroadinstitute.us",
-    }
-    default_redirect_response_code = "TEMPORARY_REDIRECT"
-    redirects      = []
-  }
 }

@@ -37,6 +37,7 @@ variable "http_redirects" {
       redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
       source_paths           = list(string)
     }))
+    use_dns_authorizations = optional(bool, true)
   }))
 }
 
