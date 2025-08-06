@@ -12,8 +12,6 @@ http_redirects = {
       "broadinsitute.org"      = ["broadinsitute.org", "www.broadinsitute.org"],
       "broadinstittute.org"    = ["broadinstittute.org", "www.broadinstittute.org"],
       "broadinstitute-mit.org" = ["broadinstitute-mit.org", "www.broadinstitute-mit.org"],
-      "broadintitute.com"      = ["broadintitute.com", "www.broadintitute.com"],
-      "broadintitute.org"      = ["broadintitute.org", "www.broadintitute.org"],
       "broadlinstitute.com"    = ["broadlinstitute.com", "www.broadlinstitute.com"],
       "broadlinstitute.net"    = ["broadlinstitute.net", "www.broadlinstitute.net"],
       "broadlinstitute.org"    = ["broadlinstitute.org", "www.broadlinstitute.org"],
@@ -29,35 +27,36 @@ http_redirects = {
   }
   "broadinstitute-org" = {
     certificates = {
-      "broadinstitute.mobi" = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
-      "broadinstitute.org"  = ["broadinstitute.org"]
-      # The following domains are Broad domains that should redirect to www.broadinstitute.org
-      # "broad.dev",
-      # "broad.im",
-      # "broad.institute",
-      # "broad.us",
-      # "broadapis.org",
-      # "broadapps.com",
-      # "broadapps.net",
-      # "broadapps.org",
-      # "broadinstitute.com",
-      # "broadinstitute.info",
-      # "broadinstitute.net",
-      # "broadinstitute.tv",
-      # "broadinstitute.us",
-      # "redirect.broadinstitute.org",
-      # "test.broadinstitute.com",
-      # "test.broadinstitute.net",
-      # "test.broadinstitute.org",
-      # "thebroadinstitute.com",
-      # "thebroadinstitute.info",
-      # "thebroadinstitute.net",
-      # "thebroadinstitute.org",
-      # "thebroadinstitute.us",
+      "broad.dev"                   = ["broad.dev", "www.broad.dev"],
+      "broad.im"                    = ["broad.im", "www.broad.im"],
+      "broad.institute"             = ["broad.institute", "www.broad.institute"],
+      "broad.us"                    = ["broad.us", "www.broad.us"],
+      "broadapis.org"               = ["broadapis.org", "www.broadapis.org"],
+      "broadapps.com"               = ["broadapps.com", "www.broadapps.com"],
+      "broadapps.net"               = ["broadapps.net", "www.broadapps.net"],
+      "broadapps.org"               = ["broadapps.org", "www.broadapps.org"],
+      "broadinstitute.com"          = ["broadinstitute.com", "www.broadinstitute.com"],
+      "broadinstitute.info"         = ["broadinstitute.info", "www.broadinstitute.info"],
+      "broadinstitute.mobi"         = ["broadinstitute.mobi", "www.broadinstitute.mobi"]
+      "broadinstitute.net"          = ["broadinstitute.net", "www.broadinstitute.net"],
+      "broadinstitute.org"          = ["broadinstitute.org"]
+      "broadinstitute.tv"           = ["broadinstitute.tv", "www.broadinstitute.tv"],
+      "broadinstitute.us"           = ["broadinstitute.us", "www.broadinstitute.us"],
+      "redirect.broadinstitute.org" = ["redirect.broadinstitute.org", "localmail.broadinstitute.org"],
+      "test.broadinstitute.com"     = ["test.broadinstitute.com", "www.test.broadinstitute.com"],
+      "test.broadinstitute.net"     = ["test.broadinstitute.net", "www.test.broadinstitute.net"],
+      "test.broadinstitute.org"     = ["test.broadinstitute.org", "www.test.broadinstitute.org"],
+      "test.broadinstitute.us"      = ["test.broadinstitute.us", "www.test.broadinstitute.us"],
+      "thebroadinstitute.com"       = ["thebroadinstitute.com", "www.thebroadinstitute.com"],
+      "thebroadinstitute.info"      = ["thebroadinstitute.info", "www.thebroadinstitute.info"],
+      "thebroadinstitute.net"       = ["thebroadinstitute.net", "www.thebroadinstitute.net"],
+      "thebroadinstitute.org"       = ["thebroadinstitute.org", "www.thebroadinstitute.org"],
+      "thebroadinstitute.us"        = ["thebroadinstitute.us", "www.thebroadinstitute.us"],
     }
     default_redirect_response_code = "TEMPORARY_REDIRECT"
     redirects                      = []
   },
+  # INC0330028
   "proteomics-broadapps-org" = {
     certificates = {
       "proteomics.broadapps.org" = ["proteomics.broadapps.org"]
