@@ -35,6 +35,12 @@ resource "google_project_iam_policy" "broad_redirect" {
 data "google_iam_policy" "admin" {
   binding {
     members = [
+      "serviceAccount:service-${google_project.redirects.number}@gcp-sa-notebooksecurityscanner.iam.gserviceaccount.com",
+    ]
+    role = "roles/notebooksecurityscanner.serviceAgent"
+  }
+  binding {
+    members = [
       "group:devnull-sa@broadinstitute.org",
     ]
     role = "roles/owner"
