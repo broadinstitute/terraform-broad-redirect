@@ -4,6 +4,7 @@ kind: Component
 metadata:
   annotations:
     backstage.io/source-template: template:default/open-pr-with-catalog-entry
+    backstage.io/techdocs-ref: dir:.
     github.com/project-slug: broadinstitute/terraform-broad-redirect
   description: Terraform configuration for the broad-redirect projects
   name: terraform-broad-redirect

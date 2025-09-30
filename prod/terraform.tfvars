@@ -57,6 +57,15 @@ http_redirects = {
     default_redirect_response_code = "TEMPORARY_REDIRECT"
     redirects                      = []
   },
+  # INC0334193
+  "people-broadinstitute-org" = {
+    certificates = {
+      "people.broadinstitute.org" = ["people.broadinstitute.org", "people-cloud.broadinstitute.org"],
+    }
+    default_destination_host = "www.myworkday.com"
+    default_destination_path = "/broadinstitute/d/task/1422$2788.htmld"
+    redirects = []
+  },
   # INC0330028
   "proteomics-broadapps-org" = {
     certificates = {
