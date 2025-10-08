@@ -1,0 +1,2 @@
+# This Azure warning is a bug in Trivy since we aren't using Azure
+AVD-AZU-0012
