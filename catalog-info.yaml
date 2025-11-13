@@ -12,7 +12,7 @@ metadata:
     - gcp
     - redirects
 spec:
-  domain: web-hosting
+  system: web-redirects
   lifecycle: production
   owner: devnull
   type: website
