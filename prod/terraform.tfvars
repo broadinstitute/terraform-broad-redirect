@@ -6,6 +6,14 @@ project_name    = "Broad Redirects - Production"
 region          = "us-east4"
 
 http_redirects = {
+  "blog-cellprofiler-org" = {
+    certificates = {
+      "blog.cellprofiler.org" = ["blog.cellprofiler.org"]
+    }
+    default_destination_host = "carpenter-singh-lab.broadinstitute.org"
+    default_destination_path = "/blog/"
+    redirects = []
+  },
   # The following domains are misspellings of broadinstitute.org
   "broadinstitute-misspell" = {
     certificates = {
