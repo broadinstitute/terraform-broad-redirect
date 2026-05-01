@@ -1,8 +1,9 @@
 ## Terraform docs
 
-[Terraform Docs](https://terraform-docs.io/) created by running:
+[Terraform Docs](https://terraform-docs.io/) created by running the following
+from the root of the repository:
 
-```Shell
+```shell
 podman run --rm -u $(id -u) \
     --volume "$(pwd):/terraform-docs" \
     -w /terraform-docs \
@@ -13,7 +14,7 @@ podman run --rm -u $(id -u) \
 
 Remember update the dependency lock file for different architectures:
 
-```Shell
+```shell
 terraform providers lock \
     -platform=linux_amd64 \
     -platform=linux_arm64 \

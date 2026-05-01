@@ -143,14 +143,14 @@ will be removed, then recreated along with the new entry you just added.
 | Name                                                                           | Version |
 | ------------------------------------------------------------------------------ | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform)       | >= 1.12 |
-| <a name="requirement_google"></a> [google](#requirement_google)                | 7.3.0   |
-| <a name="requirement_google-beta"></a> [google-beta](#requirement_google-beta) | 7.3.0   |
+| <a name="requirement_google"></a> [google](#requirement_google)                | 7.30.0  |
+| <a name="requirement_google-beta"></a> [google-beta](#requirement_google-beta) | 7.30.0  |
 
 ## Providers
 
 | Name                                                      | Version |
 | --------------------------------------------------------- | ------- |
-| <a name="provider_google"></a> [google](#provider_google) | 7.3.0   |
+| <a name="provider_google"></a> [google](#provider_google) | 7.30.0  |
 
 ## Modules
 
@@ -160,15 +160,15 @@ will be removed, then recreated along with the new entry you just added.
 
 ## Resources
 
-| Name                                                                                                                                                                        | Type        |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [google_certificate_manager_dns_authorization.domains](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/certificate_manager_dns_authorization) | resource    |
-| [google_compute_ssl_policy.redirects](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/compute_ssl_policy)                                     | resource    |
-| [google_project.redirects](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/project)                                                           | resource    |
-| [google_project_iam_policy.broad_redirect](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/project_iam_policy)                                | resource    |
-| [google_project_service.api_services](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/project_service)                                        | resource    |
-| [google_resource_manager_lien.redirects](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/resources/resource_manager_lien)                               | resource    |
-| [google_iam_policy.admin](https://registry.terraform.io/providers/hashicorp/google/7.3.0/docs/data-sources/iam_policy)                                                      | data source |
+| Name                                                                                                                                                                         | Type        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [google_certificate_manager_dns_authorization.domains](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/certificate_manager_dns_authorization) | resource    |
+| [google_compute_ssl_policy.redirects](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/compute_ssl_policy)                                     | resource    |
+| [google_project.redirects](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/project)                                                           | resource    |
+| [google_project_iam_policy.broad_redirect](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/project_iam_policy)                                | resource    |
+| [google_project_service.api_services](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/project_service)                                        | resource    |
+| [google_resource_manager_lien.redirects](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/resources/resource_manager_lien)                               | resource    |
+| [google_iam_policy.admin](https://registry.terraform.io/providers/hashicorp/google/7.30.0/docs/data-sources/iam_policy)                                                      | data source |
 
 ## Inputs
 
@@ -191,7 +191,7 @@ No outputs.
 
 [Terraform Docs](https://terraform-docs.io/) created by running:
 
-```Shell
+```shell
 podman run --rm -u $(id -u) \
     --volume "$(pwd):/terraform-docs" \
     -w /terraform-docs \
@@ -202,7 +202,7 @@ podman run --rm -u $(id -u) \
 
 Remember update the dependency lock file for different architectures:
 
-```Shell
+```shell
 terraform providers lock \
     -platform=linux_amd64 \
     -platform=linux_arm64 \
