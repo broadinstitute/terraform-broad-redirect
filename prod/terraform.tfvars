@@ -63,7 +63,12 @@ http_redirects = {
       "thebroadinstitute.us"        = ["thebroadinstitute.us", "www.thebroadinstitute.us"],
     }
     default_redirect_response_code = "TEMPORARY_REDIRECT"
-    redirects                      = []
+    redirects                      = [
+      {
+        destination_host = "www.broadinstitute.org"
+        source_paths     = ["/*"]
+      },
+    ]
   },
   # INC0334193
   "people-broadinstitute-org" = {

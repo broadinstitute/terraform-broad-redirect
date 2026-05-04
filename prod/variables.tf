@@ -33,7 +33,7 @@ variable "http_redirects" {
     https_port_range               = optional(string, "443")
     redirects = list(object({
       destination_host       = string
-      destination_path       = string
+      destination_path       = optional(string)
       redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
       source_paths           = list(string)
     }))
