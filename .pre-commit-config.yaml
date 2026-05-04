@@ -17,7 +17,9 @@ repos:
           - --allow-missing-credentials
       - id: detect-private-key
       - id: end-of-file-fixer
+        exclude: .gitignore
       - id: mixed-line-ending
+        exclude: .gitignore
       - id: trailing-whitespace
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.105.0
