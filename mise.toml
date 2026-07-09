@@ -1,5 +1,8 @@
 [tools]
-"aqua:hashicorp/terraform" = "latest"
-"cargo:adrs" = "latest"
+"aqua:j178/prek" = "latest"
+"github:joshrotenberg/adrs" = "latest"
 "npm:prettier" = "latest"
 node = "latest"
+terraform = "latest"
+tflint = "latest"
+yamllint = "latest"

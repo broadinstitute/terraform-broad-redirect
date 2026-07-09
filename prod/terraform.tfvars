@@ -6,6 +6,46 @@ project_name    = "Broad Redirects - Production"
 region          = "us-east4"
 
 http_redirects = {
+  "amsn-broadinstitute-org" = {
+    certificates = {
+      "amsn.broadinstitute.org" = ["amsn.broadinstitute.org"]
+    }
+    default_destination_host = "docs.google.com"
+    default_destination_path = "/forms/d/e/1FAIpQLSfe4gFX88fWZvM6CrdRonVdiVn7ZTq1YqhoLei1__vYunZUmg/viewform"
+    redirects = []
+  },
+
+  "artifactory-broadinstitute-org" = {
+    certificates = {
+      "artifactory.broadinstitute.org" = ["artifactory.broadinstitute.org"]
+    }
+    default_destination_host = "broadinstitute.jfrog.io"
+    default_destination_path = "/"
+    redirects = []
+  },
+
+  "b2b-broadinstitute-org" = {
+    certificates = {
+      "b2b.broadinstitute.org" = ["b2b.broadinstitute.org", "epernicus.broadinstitute.org"]
+    }
+    default_destination_host = "intranet.broadinstitute.org"
+    default_destination_path = "/work/whom-do-i-ask"
+    redirects = []
+  },
+  "bacteroidescyc-broadinstitute-org" = {
+    certificates = {
+      "bacteroidescyc.broadinstitute.org" = [
+        "bacteroidescyc.broadinstitute.org",
+        "enterocyc.broadinstitute.org",
+        "fusocyc.broadinstitute.org",
+        "rhodocyc.broadinstitute.org",
+        "strepcyc.broadinstitute.org",
+      ]
+    }
+    default_destination_host = "www.broadinstitute.org"
+    default_destination_path = "/node/7965"
+    redirects = []
+  },
   "blog-cellprofiler-org" = {
     certificates = {
       "blog.cellprofiler.org" = ["blog.cellprofiler.org"]
@@ -69,6 +109,38 @@ http_redirects = {
         source_paths     = ["/*"]
       },
     ]
+  },
+  "cancergenome-broadinstitute-org" = {
+    certificates = {
+      "cancergenome.broadinstitute.org" = ["cancergenome.broadinstitute.org", "tumorportal.broadinstitute.org"]
+    }
+    default_destination_host = "www.tumorportal.org"
+    default_destination_path = "/"
+    redirects = []
+  },
+  "cga-broadinstitute-org" = {
+    certificates = {
+      "cga.broadinstitute.org" = ["cga.broadinstitute.org"]
+    }
+    default_destination_host = "broadinstitute.atlassian.net"
+    default_destination_path = "/wiki/spaces/CGATools/overview"
+    redirects = []
+  },
+  "chembank-broadinstitute-org" = {
+    certificates = {
+      "chembank.broadinstitute.org" = ["chembank.broadinstitute.org"]
+    }
+    default_destination_host = "data.broadinstitute.org"
+    default_destination_path = "/chembank/"
+    redirects = []
+  },
+  "clue-broadinstitute-org" = {
+    certificates = {
+      "clue.broadinstitute.org" = ["clue.broadinstitute.org"]
+    }
+    default_destination_host = "clue.io"
+    default_destination_path = "/"
+    redirects = []
   },
   # INC0334193
   "people-broadinstitute-org" = {
