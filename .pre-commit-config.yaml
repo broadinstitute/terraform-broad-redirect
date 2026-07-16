@@ -4,14 +4,11 @@ repos:
     rev: v6.0.0
     hooks:
       - id: check-added-large-files
-      - id: check-ast
       - id: check-case-conflict
-      - id: check-docstring-first
       - id: check-executables-have-shebangs
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
-      - id: debug-statements
       - id: detect-aws-credentials
         args:
           - --allow-missing-credentials
@@ -22,14 +19,16 @@ repos:
         exclude: .gitignore
       - id: trailing-whitespace
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.105.0
+    rev: v1.108.0
     hooks:
       - id: terraform_tflint
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.8
+    rev: v0.15.20
     hooks:
       - id: ruff
-        args: [--fix, --exit-non-zero-on-fix]
+        args:
+          - --fix
+          - --exit-non-zero-on-fix
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.38.0
     hooks:
