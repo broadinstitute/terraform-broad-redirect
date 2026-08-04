@@ -1,8 +1,10 @@
 locals {
   all_hosts = flatten([
-    for cert, data in var.http_redirects : flatten([
-      for name, hosts in data.certificates :
-      hosts if data.use_dns_authorizations
+    for section, secdata in var.http_redirects : flatten([
+      for cert, data in secdata.sites : flatten([
+        for name, hosts in data.certificates :
+        hosts if secdata.use_dns_authorizations
+      ])
     ])
   ])
 }
@@ -23,11 +25,10 @@ resource "google_certificate_manager_dns_authorization" "domains" {
   type        = "PER_PROJECT_RECORD"
 }
 
-module "http_redirects" {
+module "redirects" {
   for_each = var.http_redirects
-  source   = "github.com/broadinstitute/terraform-google-redirect//modules/http_redirects?ref=v1.1.0"
+  source   = "github.com/broadinstitute/terraform-google-redirect//modules/http_lb_redirects?ref=v2.0.0"
 
-  certificates                   = each.value.certificates
   default_destination_host       = each.value.default_destination_host
   default_destination_path       = each.value.default_destination_path
   default_redirect_response_code = each.value.default_redirect_response_code
@@ -36,7 +37,7 @@ module "http_redirects" {
   https_port_range               = each.value.https_port_range
   name                           = each.key
   project                        = google_project.redirects.project_id
-  redirects                      = each.value.redirects
+  redirects                      = each.value.sites
   ssl_policy                     = google_compute_ssl_policy.redirects.self_link
   use_dns_authorizations         = each.value.use_dns_authorizations
 }

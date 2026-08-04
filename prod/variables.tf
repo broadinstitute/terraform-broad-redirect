@@ -25,17 +25,22 @@ variable "folder_id" {
 variable "http_redirects" {
   description = "The map of redirects to create."
   type = map(object({
-    certificates                   = map(list(string))
     default_destination_host       = optional(string, "www.broadinstitute.org")
     default_destination_path       = optional(string, "/")
     default_redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
     http_port_range                = optional(string, "80")
     https_port_range               = optional(string, "443")
-    redirects = list(object({
-      destination_host       = string
-      destination_path       = optional(string)
-      redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
-      source_paths           = list(string)
+    sites = map(object({
+      certificates                   = map(list(string))
+      default_destination_host       = optional(string, "www.broadinstitute.org")
+      default_destination_path       = optional(string, "/")
+      default_redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
+      redirects = optional(list(object({
+        destination_host       = string
+        destination_path       = optional(string)
+        redirect_response_code = optional(string, "MOVED_PERMANENTLY_DEFAULT")
+        source_paths           = list(string)
+      })), [])
     }))
     use_dns_authorizations = optional(bool, true)
   }))
