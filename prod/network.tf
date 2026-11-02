@@ -27,7 +27,7 @@ resource "google_certificate_manager_dns_authorization" "domains" {
 
 module "redirects" {
   for_each = var.http_redirects
-  source   = "github.com/broadinstitute/terraform-google-redirect//modules/http_lb_redirects?ref=v2.0.0"
+  source   = "github.com/broadinstitute/terraform-google-redirect//modules/http_lb_redirects?ref=v2.0.1"
 
   default_destination_host       = each.value.default_destination_host
   default_destination_path       = each.value.default_destination_path
